@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
+import HabitListBox from './HabitListBox';
+import habitPayload from "../data/habitList.json";
 
 class ListHabit extends Component{
-    constructor(){
+    constructor(props){
+        super(props);
     }
     render(){
-        return(<div>Habit Streak</div>);
+        return(
+            <div>
+                {habitPayload.map(habit => (
+                    <HabitListBox habitDetail={habit}  key={habit.id}/>
+                ))}
+            </div>
+        );
     }
 }
 
